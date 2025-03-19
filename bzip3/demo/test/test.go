@@ -3,13 +3,12 @@ package main
 import (
 	"fmt"
 
+	"github.com/goplus/llgo/c"
 	zip "github.com/goplus/llpkg/bzip3"
 )
 
-//export PKG_CONFIG_PATH="/Users/heulucklu/code/gop/llpkg/bzip3:$PKG_CONFIG_PATH"
 func main() {
-	fmt.Println(*zip.Bz3Version())
-
+	fmt.Println(c.GoString(zip.Bz3Version()))
 	// 测试用例：压缩和解压缩
 	input := []byte("Hello, bzip3 compression!")
 	output := make([]byte, zip.Bz3Bound(uintptr(len(input))))
