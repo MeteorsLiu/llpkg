@@ -1,0 +1,10 @@
+prefix=/Users/heulucklu/.conan2/p/b/cargs5484cc1ea548f/p
+libdir=${prefix}/lib
+includedir=${prefix}/include
+bindir=${prefix}/bin
+
+Name: cargs
+Description: Conan package: cargs
+Version: 1.2.0
+Libs: -L"${libdir}" -lcargs
+Cflags: -I"${includedir}"
