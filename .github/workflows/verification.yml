@@ -1,8 +1,12 @@
 name: Verify Go Module
 
+
+# don't limit to main branch
+# consider maintenance branch
 on:
   pull_request:
     branches:
+      - 'release-branch.**'
       - main
 
 
@@ -20,6 +24,7 @@ jobs:
       - name: Checkout
         id: checkout
         uses: actions/checkout@v4
+
 
       - name: Set up Go
         uses: actions/setup-go@v4
@@ -50,14 +55,14 @@ jobs:
           echo "LLGO_ROOT=$LLGO_ROOT" >> $GITHUB_ENV
       - name: Install LLCppg
         run: |
-          git clone https://github.com/goplus/llcppg.git
+          git clone -b v0.1.0 https://github.com/goplus/llcppg.git
           echo $PWD
           cd llcppg
           llgo install ./_xtool/llcppsymg
           llgo install ./_xtool/llcppsigfetch
-          go install github.com/goplus/llcppg/cmd/llcppcfg@latest
-          go install github.com/goplus/llcppg/cmd/gogensig@latest
-          go install github.com/goplus/llcppg@latest
+          go install github.com/goplus/llcppg/cmd/llcppcfg@v0.1.0
+          go install github.com/goplus/llcppg/cmd/gogensig@v0.1.0
+          go install github.com/goplus/llcppg@v0.1.0
       - name: Check Tools
         run: |
           conan -v

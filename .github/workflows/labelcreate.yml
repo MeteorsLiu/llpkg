@@ -1,10 +1,13 @@
 name: Legacy version maintenance
 
+permissions: write-all
+
 
 # label trigger
 on:
   label:
     types: [created]
+
 
 
 jobs:
@@ -13,9 +16,31 @@ jobs:
     if: |
       contains(github.event.label.name, 'branch:release-branch.')
     steps:
-      - name: Checkout
-        id: checkout
+      - name: Checkout to website
         uses: actions/checkout@v4
+        with:
+          ref: website
+          path: .website
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: .main
+      # actions/checkout cannot fetch tags even though using fetch-tags
+      # see issue: https://github.com/actions/checkout/issues/1471
+      - name: Fetch all tags
+        working-directory: .main
+        run: |
+          git fetch --all --tags --prune
+
+      - name: Copy llpkgstore.json to root
+        continue-on-error: true
+        run: |
+          # ignore error
+          ls .website .website/_website/public
+          cp .website/_website/public/llpkgstore.json .main
+          rm -rf .website
+
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
@@ -25,7 +50,10 @@ jobs:
           go env -w GOPRIVATE=github.com/MeteorsLiu/llpkgstore
       - name: Set up Parser Tool
         run: |
-          go install -v github.com/MeteorsLiu/llpkgstore/cmd/maintain@rebase
+          go install -v github.com/MeteorsLiu/llpkgstore/cmd/maintain@gha-test
       - name: Run maintenance process
+        working-directory: .main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          maintain labelcreate
+          maintain labelcreate -l "${{ github.event.label.name }}"
