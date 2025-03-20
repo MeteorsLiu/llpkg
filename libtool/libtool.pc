@@ -1,0 +1,11 @@
+prefix=/Users/heulucklu/.conan2/p/b/libto9ac2dd44ef040/p
+libdir=${prefix}/lib
+includedir=${prefix}/include
+bindir=${prefix}/bin
+
+Name: libtool
+Description: Conan package: libtool
+Version: 2.4.7
+Libs: -L"${libdir}" -lltdl
+Cflags: -I"${includedir}"
+Requires: automake

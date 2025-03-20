@@ -1,0 +1,6 @@
+prefix=/Users/heulucklu/.conan2/p/m4d5c0f39cf860b/p
+bindir=${prefix}/bin
+
+Name: m4
+Description: Conan package: m4
+Version: 1.4.19

@@ -1,0 +1,7 @@
+prefix=/Users/heulucklu/.conan2/p/autom66a617d09f411/p
+bindir=${prefix}/bin
+
+Name: automake
+Description: Conan package: automake
+Version: 1.16.5
+Requires: autoconf

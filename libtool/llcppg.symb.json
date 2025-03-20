@@ -1,0 +1,161 @@
+[{
+		"mangle":	"lt_dladderror",
+		"c++":	"lt_dladderror(const char *)",
+		"go":	"LtDladderror"
+	}, {
+		"mangle":	"lt_dladdsearchdir",
+		"c++":	"lt_dladdsearchdir(const char *)",
+		"go":	"LtDladdsearchdir"
+	}, {
+		"mangle":	"lt_dladvise_destroy",
+		"c++":	"lt_dladvise_destroy(lt_dladvise *)",
+		"go":	"LtDladviseDestroy"
+	}, {
+		"mangle":	"lt_dladvise_ext",
+		"c++":	"lt_dladvise_ext(lt_dladvise *)",
+		"go":	"LtDladviseExt"
+	}, {
+		"mangle":	"lt_dladvise_global",
+		"c++":	"lt_dladvise_global(lt_dladvise *)",
+		"go":	"LtDladviseGlobal"
+	}, {
+		"mangle":	"lt_dladvise_init",
+		"c++":	"lt_dladvise_init(lt_dladvise *)",
+		"go":	"LtDladviseInit"
+	}, {
+		"mangle":	"lt_dladvise_local",
+		"c++":	"lt_dladvise_local(lt_dladvise *)",
+		"go":	"LtDladviseLocal"
+	}, {
+		"mangle":	"lt_dladvise_preload",
+		"c++":	"lt_dladvise_preload(lt_dladvise *)",
+		"go":	"LtDladvisePreload"
+	}, {
+		"mangle":	"lt_dladvise_resident",
+		"c++":	"lt_dladvise_resident(lt_dladvise *)",
+		"go":	"LtDladviseResident"
+	}, {
+		"mangle":	"lt_dlcaller_get_data",
+		"c++":	"lt_dlcaller_get_data(lt_dlinterface_id, lt_dlhandle)",
+		"go":	"LtDlcallerGetData"
+	}, {
+		"mangle":	"lt_dlcaller_set_data",
+		"c++":	"lt_dlcaller_set_data(lt_dlinterface_id, lt_dlhandle, void *)",
+		"go":	"LtDlcallerSetData"
+	}, {
+		"mangle":	"lt_dlclose",
+		"c++":	"lt_dlclose(lt_dlhandle)",
+		"go":	"LtDlclose"
+	}, {
+		"mangle":	"lt_dlerror",
+		"c++":	"lt_dlerror()",
+		"go":	"LtDlerror"
+	}, {
+		"mangle":	"lt_dlexit",
+		"c++":	"lt_dlexit()",
+		"go":	"LtDlexit"
+	}, {
+		"mangle":	"lt_dlforeachfile",
+		"c++":	"lt_dlforeachfile(const char *, int (*)(const char *, void *), void *)",
+		"go":	"LtDlforeachfile"
+	}, {
+		"mangle":	"lt_dlgetinfo",
+		"c++":	"lt_dlgetinfo(lt_dlhandle)",
+		"go":	"LtDlgetinfo"
+	}, {
+		"mangle":	"lt_dlgetsearchpath",
+		"c++":	"lt_dlgetsearchpath()",
+		"go":	"LtDlgetsearchpath"
+	}, {
+		"mangle":	"lt_dlhandle_fetch",
+		"c++":	"lt_dlhandle_fetch(lt_dlinterface_id, const char *)",
+		"go":	"LtDlhandleFetch"
+	}, {
+		"mangle":	"lt_dlhandle_iterate",
+		"c++":	"lt_dlhandle_iterate(lt_dlinterface_id, lt_dlhandle)",
+		"go":	"LtDlhandleIterate"
+	}, {
+		"mangle":	"lt_dlhandle_map",
+		"c++":	"lt_dlhandle_map(lt_dlinterface_id, int (*)(lt_dlhandle, void *), void *)",
+		"go":	"LtDlhandleMap"
+	}, {
+		"mangle":	"lt_dlinit",
+		"c++":	"lt_dlinit()",
+		"go":	"LtDlinit"
+	}, {
+		"mangle":	"lt_dlinsertsearchdir",
+		"c++":	"lt_dlinsertsearchdir(const char *, const char *)",
+		"go":	"LtDlinsertsearchdir"
+	}, {
+		"mangle":	"lt_dlinterface_free",
+		"c++":	"lt_dlinterface_free(lt_dlinterface_id)",
+		"go":	"LtDlinterfaceFree"
+	}, {
+		"mangle":	"lt_dlinterface_register",
+		"c++":	"lt_dlinterface_register(const char *, lt_dlhandle_interface *)",
+		"go":	"LtDlinterfaceRegister"
+	}, {
+		"mangle":	"lt_dlisresident",
+		"c++":	"lt_dlisresident(lt_dlhandle)",
+		"go":	"LtDlisresident"
+	}, {
+		"mangle":	"lt_dlloader_add",
+		"c++":	"lt_dlloader_add(const lt_dlvtable *)",
+		"go":	"(*LtDlvtable).LtDlloaderAdd"
+	}, {
+		"mangle":	"lt_dlloader_find",
+		"c++":	"lt_dlloader_find(const char *)",
+		"go":	"LtDlloaderFind"
+	}, {
+		"mangle":	"lt_dlloader_get",
+		"c++":	"lt_dlloader_get(lt_dlloader)",
+		"go":	"LtDlloaderGet"
+	}, {
+		"mangle":	"lt_dlloader_next",
+		"c++":	"lt_dlloader_next(const lt_dlloader)",
+		"go":	"LtDlloaderNext"
+	}, {
+		"mangle":	"lt_dlloader_remove",
+		"c++":	"lt_dlloader_remove(const char *)",
+		"go":	"LtDlloaderRemove"
+	}, {
+		"mangle":	"lt_dlmakeresident",
+		"c++":	"lt_dlmakeresident(lt_dlhandle)",
+		"go":	"LtDlmakeresident"
+	}, {
+		"mangle":	"lt_dlopen",
+		"c++":	"lt_dlopen(const char *)",
+		"go":	"LtDlopen"
+	}, {
+		"mangle":	"lt_dlopenadvise",
+		"c++":	"lt_dlopenadvise(const char *, lt_dladvise)",
+		"go":	"LtDlopenadvise"
+	}, {
+		"mangle":	"lt_dlopenext",
+		"c++":	"lt_dlopenext(const char *)",
+		"go":	"LtDlopenext"
+	}, {
+		"mangle":	"lt_dlpreload",
+		"c++":	"lt_dlpreload(const lt_dlsymlist *)",
+		"go":	"(*LtDlsymlist).LtDlpreload"
+	}, {
+		"mangle":	"lt_dlpreload_default",
+		"c++":	"lt_dlpreload_default(const lt_dlsymlist *)",
+		"go":	"(*LtDlsymlist).LtDlpreloadDefault"
+	}, {
+		"mangle":	"lt_dlpreload_open",
+		"c++":	"lt_dlpreload_open(const char *, lt_dlpreload_callback_func *)",
+		"go":	"LtDlpreloadOpen"
+	}, {
+		"mangle":	"lt_dlseterror",
+		"c++":	"lt_dlseterror(int)",
+		"go":	"LtDlseterror"
+	}, {
+		"mangle":	"lt_dlsetsearchpath",
+		"c++":	"lt_dlsetsearchpath(const char *)",
+		"go":	"LtDlsetsearchpath"
+	}, {
+		"mangle":	"lt_dlsym",
+		"c++":	"lt_dlsym(lt_dlhandle, const char *)",
+		"go":	"LtDlsym"
+	}]

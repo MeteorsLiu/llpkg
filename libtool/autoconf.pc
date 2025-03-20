@@ -1,0 +1,7 @@
+prefix=/Users/heulucklu/.conan2/p/autocf2af015330354/p
+bindir=${prefix}/bin
+
+Name: autoconf
+Description: Conan package: autoconf
+Version: 2.71
+Requires: m4
