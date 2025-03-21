@@ -9,10 +9,6 @@ on:
       - 'release-branch.**'
       - main
 
-permissions:
-    contents: write
-    pages: write
-    id-token: write
 
 jobs:
   post-processing:
@@ -77,6 +73,9 @@ jobs:
   rebuild-github-pages:
     runs-on: ubuntu-latest
     needs: [post-processing]
+    permissions:
+      pages: write
+      id-token: write
     strategy:
         matrix:
             node-version: [23.8.0]
