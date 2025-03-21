@@ -6,11 +6,11 @@ import (
 	"unsafe"
 )
 
-const VERSION = "1.3.1"
-const VERNUM = 0x1310
+const VERSION = "1.2.13"
+const VERNUM = 0x12d0
 const VER_MAJOR = 1
-const VER_MINOR = 3
-const VER_REVISION = 1
+const VER_MINOR = 2
+const VER_REVISION = 13
 const VER_SUBREVISION = 0
 const NO_FLUSH = 0
 const PARTIAL_FLUSH = 1
@@ -93,12 +93,12 @@ type GzHeaderp *GzHeader
 func ZlibVersion() *int8
 
 /*
-ZEXTERN int ZEXPORT deflateInit(z_streamp strm, int level);
+ZEXTERN int ZEXPORT deflateInit OF((z_streamp strm, int level));
 
      Initializes the internal stream state for compression.  The fields
    zalloc, zfree and opaque must be initialized before by the caller.  If
    zalloc and zfree are set to Z_NULL, deflateInit updates them to use default
-   allocation functions.  total_in, total_out, adler, and msg are initialized.
+   allocation functions.
 
      The compression level must be Z_DEFAULT_COMPRESSION, or between 0 and 9:
    1 gives best speed, 9 gives best compression, 0 gives no compression at all
@@ -188,8 +188,8 @@ func Deflate(strm ZStreamp, flush c.Int) c.Int
   with the same value of the flush parameter and more output space (updated
   avail_out), until the flush is complete (deflate returns with non-zero
   avail_out).  In the case of a Z_FULL_FLUSH or Z_SYNC_FLUSH, make sure that
-  avail_out is greater than six when the flush marker begins, in order to avoid
-  repeated flush markers upon calling deflate() again when avail_out == 0.
+  avail_out is greater than six to avoid repeated flush markers due to
+  avail_out == 0 on return.
 
     If the parameter flush is set to Z_FINISH, pending input is processed,
   pending output is flushed and deflate returns with Z_STREAM_END if there was
@@ -230,7 +230,7 @@ func Deflate(strm ZStreamp, flush c.Int) c.Int
 func DeflateEnd(strm ZStreamp) c.Int
 
 /*
-ZEXTERN int ZEXPORT inflateInit(z_streamp strm);
+ZEXTERN int ZEXPORT inflateInit OF((z_streamp strm));
 
      Initializes the internal stream state for decompression.  The fields
    next_in, avail_in, zalloc, zfree and opaque must be initialized before by
@@ -238,8 +238,7 @@ ZEXTERN int ZEXPORT inflateInit(z_streamp strm);
    read or consumed.  The allocation of a sliding window will be deferred to
    the first call of inflate (if the decompression does not complete on the
    first call).  If zalloc and zfree are set to Z_NULL, inflateInit updates
-   them to use default allocation functions.  total_in, total_out, adler, and
-   msg are initialized.
+   them to use default allocation functions.
 
      inflateInit returns Z_OK if success, Z_MEM_ERROR if there was not enough
    memory, Z_VERSION_ERROR if the zlib library version is incompatible with the
@@ -375,12 +374,12 @@ func Inflate(strm ZStreamp, flush c.Int) c.Int
 func InflateEnd(strm ZStreamp) c.Int
 
 /*
-ZEXTERN int ZEXPORT deflateInit2(z_streamp strm,
-                                 int level,
-                                 int method,
-                                 int windowBits,
-                                 int memLevel,
-                                 int strategy);
+ZEXTERN int ZEXPORT deflateInit2 OF((z_streamp strm,
+                                     int  level,
+                                     int  method,
+                                     int  windowBits,
+                                     int  memLevel,
+                                     int  strategy));
 
      This is another version of deflateInit with more compression options.  The
    fields zalloc, zfree and opaque must be initialized before by the caller.
@@ -535,7 +534,7 @@ func DeflateReset(strm ZStreamp) c.Int
      This function is equivalent to deflateEnd followed by deflateInit, but
    does not free and reallocate the internal compression state.  The stream
    will leave the compression level and any other attributes that may have been
-   set unchanged.  total_in, total_out, adler, and msg are initialized.
+   set unchanged.
 
      deflateReset returns Z_OK if success, or Z_STREAM_ERROR if the source
    stream state was inconsistent (such as zalloc or state being Z_NULL).
@@ -567,7 +566,7 @@ func DeflateParams(strm ZStreamp, level c.Int, strategy c.Int) c.Int
    Then no more input data should be provided before the deflateParams() call.
    If this is done, the old level and strategy will be applied to the data
    compressed before deflateParams(), and the new level and strategy will be
-   applied to the data compressed after deflateParams().
+   applied to the the data compressed after deflateParams().
 
      deflateParams returns Z_OK on success, Z_STREAM_ERROR if the source stream
    state was inconsistent or if a parameter was invalid, or Z_BUF_ERROR if
@@ -640,8 +639,8 @@ func DeflatePrime(strm ZStreamp, bits c.Int, value c.Int) c.Int
 func DeflateSetHeader(strm ZStreamp, head GzHeaderp) c.Int
 
 /*
-ZEXTERN int ZEXPORT inflateInit2(z_streamp strm,
-                                 int windowBits);
+ZEXTERN int ZEXPORT inflateInit2 OF((z_streamp strm,
+                                     int  windowBits));
 
      This is another version of inflateInit with an extra parameter.  The
    fields next_in, avail_in, zalloc, zfree and opaque must be initialized
@@ -744,10 +743,10 @@ func InflateSync(strm ZStreamp) c.Int
      inflateSync returns Z_OK if a possible full flush point has been found,
    Z_BUF_ERROR if no more input was provided, Z_DATA_ERROR if no flush point
    has been found, or Z_STREAM_ERROR if the stream structure was inconsistent.
-   In the success case, the application may save the current value of total_in
-   which indicates where valid compressed data was found.  In the error case,
-   the application may repeatedly call inflateSync, providing more input each
-   time, until success or end of the input data.
+   In the success case, the application may save the current current value of
+   total_in which indicates where valid compressed data was found.  In the
+   error case, the application may repeatedly call inflateSync, providing more
+   input each time, until success or end of the input data.
 */
 //go:linkname InflateCopy C.inflateCopy
 func InflateCopy(dest ZStreamp, source ZStreamp) c.Int
@@ -772,7 +771,6 @@ func InflateReset(strm ZStreamp) c.Int
      This function is equivalent to inflateEnd followed by inflateInit,
    but does not free and reallocate the internal decompression state.  The
    stream will keep attributes that may have been set by inflateInit2.
-   total_in, total_out, adler, and msg are initialized.
 
      inflateReset returns Z_OK if success, or Z_STREAM_ERROR if the source
    stream state was inconsistent (such as zalloc or state being Z_NULL).
@@ -1004,7 +1002,7 @@ type GzFileS struct {
 type GzFile *GzFileS
 
 /*
-ZEXTERN gzFile ZEXPORT gzopen(const char *path, const char *mode);
+ZEXTERN gzFile ZEXPORT gzopen OF((const char *path, const char *mode));
 
      Open the gzip (.gz) file at path for reading and decompressing, or
    compressing and writing.  The mode parameter is as in fopen ("rb" or "wb")
@@ -1245,8 +1243,8 @@ func Gzungetc(c c.Int, file GzFile) c.Int
 func Gzflush(file GzFile, flush c.Int) c.Int
 
 /*
-ZEXTERN z_off_t ZEXPORT gzseek(gzFile file,
-                               z_off_t offset, int whence);
+ZEXTERN z_off_t ZEXPORT gzseek OF((gzFile file,
+                                   z_off_t offset, int whence));
 
      Set the starting position to offset relative to whence for the next gzread
    or gzwrite on file.  The offset represents a number of bytes in the
@@ -1267,7 +1265,7 @@ ZEXTERN z_off_t ZEXPORT gzseek(gzFile file,
 func Gzrewind(file GzFile) c.Int
 
 /*
-ZEXTERN z_off_t ZEXPORT gzoffset(gzFile file);
+ZEXTERN z_off_t ZEXPORT gzoffset OF((gzFile file));
 
      Return the current compressed (actual) read or write offset of file.  This
    offset includes the count of bytes that precede the gzip stream, for example
@@ -1396,8 +1394,8 @@ func (recv_ ULong) Adler32Z(buf *Bytef, len ZSizeT) ULong {
 }
 
 /*
-ZEXTERN uLong ZEXPORT adler32_combine(uLong adler1, uLong adler2,
-                                      z_off_t len2);
+ZEXTERN uLong ZEXPORT adler32_combine OF((uLong adler1, uLong adler2,
+                                          z_off_t len2));
 
      Combine two Adler-32 checksums into one.  For two sequences of bytes, seq1
    and seq2 with lengths len1 and len2, Adler-32 checksums were calculated for
@@ -1433,10 +1431,10 @@ func (recv_ ULong) Crc32Z(buf *Bytef, len ZSizeT) ULong {
 }
 
 /*
-ZEXTERN uLong ZEXPORT crc32_combine_gen(z_off_t len2);
+ZEXTERN uLong ZEXPORT crc32_combine_gen OF((z_off_t len2));
 
      Return the operator corresponding to length len2, to be used with
-   crc32_combine_op(). len2 must be non-negative.
+   crc32_combine_op().
 */
 // llgo:link ULong.Crc32CombineOp C.crc32_combine_op
 func (recv_ ULong) Crc32CombineOp(crc2 ULong, op ULong) ULong {
