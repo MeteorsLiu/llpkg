@@ -9,6 +9,9 @@ on:
       - 'release-branch.**'
       - main
 
+permissions:
+    pages: write
+    id-token: write
 
 jobs:
   post-processing:
