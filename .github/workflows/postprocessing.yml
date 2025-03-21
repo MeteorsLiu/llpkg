@@ -77,11 +77,13 @@ jobs:
         matrix:
             node-version: [23.8.0]
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout to website
+        uses: actions/checkout@v4
+        with:
+          ref: website
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-            ref: website
             node-version: ${{ matrix.node-version }}
       - run: corepack enable
       - name: Install Dependencies
