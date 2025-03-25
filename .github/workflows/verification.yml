@@ -81,7 +81,7 @@ jobs:
         run: |
           # ignore error
           ls .website .website/public
-          cp .website/public/llpkgstore.json .main
+          cp .website/public/llpkgstore.json .
           rm -rf .website
 
       - name: Verfication
