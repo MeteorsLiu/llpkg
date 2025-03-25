@@ -73,8 +73,14 @@ jobs:
     strategy:
       matrix:
         os:
+          # amd64 darwin
+          - macos-13
+          # arm64 darwin
           - macos-latest
+          # amd64 linux
           - ubuntu-24.04
+          # ard64 linux
+          - ubuntu-24.04-arm
         llvm: [18]
     runs-on: ${{matrix.os}}
     needs: [post-processing]
