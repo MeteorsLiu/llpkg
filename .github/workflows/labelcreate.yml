@@ -31,14 +31,6 @@ jobs:
         run: |
           git fetch --all --tags --prune
 
-      - name: Copy llpkgstore.json to root
-        continue-on-error: true
-        run: |
-          # ignore error
-          ls .website .website/public
-          cp .website/public/llpkgstore.json .main
-          rm -rf .website
-
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
@@ -49,9 +41,16 @@ jobs:
       - name: Set up Parser Tool
         run: |
           go install -v github.com/MeteorsLiu/llpkgstore/cmd/maintain@gha-test
+      - name: Copy llpkgstore.json to root
+        continue-on-error: true
+        run: |
+          # ignore error
+          ls .website .website/public
+          cp .website/public/llpkgstore.json .main
+          rm -rf .website
       - name: Run maintenance process
         working-directory: .main
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           maintain labelcreate -l "${{ github.event.label.name }}"

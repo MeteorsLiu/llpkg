@@ -1,0 +1,10 @@
+prefix=/home/vscode/.conan2/p/b/gmp9d4ad1abfdf84/p
+libdir=${prefix}/lib
+includedir=${prefix}/include
+bindir=${prefix}/bin
+
+Name: gmp
+Description: Conan component: gmp-all-do-not-use-gmp
+Version: 6.3.0
+Libs: -L"${libdir}" -lgmp
+Cflags: -I"${includedir}"
