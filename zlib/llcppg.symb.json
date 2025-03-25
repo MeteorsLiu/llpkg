@@ -212,7 +212,11 @@
 		"go":	"Gzungetc"
 	}, {
 		"mangle":	"gzvprintf",
+<<<<<<< HEAD
+		"c++":	"gzvprintf(gzFile, const char *, va_list)",
+=======
 		"c++":	"gzvprintf(gzFile, const char *, int)",
+>>>>>>> 673a8bf0a523edcdfd4854a9be059d28b6279448
 		"go":	"Gzvprintf"
 	}, {
 		"mangle":	"gzwrite",
