@@ -1,0 +1,10 @@
+prefix=/Users/heulucklu/.conan2/p/b/bzip3c3b8c28e5e8ba/p
+libdir=${prefix}/lib
+includedir=${prefix}/include
+bindir=${prefix}/bin
+
+Name: bzip3
+Description: Conan package: bzip3
+Version: 1.5.1
+Libs: -L"${libdir}" -lbzip3
+Cflags: -I"${includedir}"
