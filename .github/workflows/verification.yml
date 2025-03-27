@@ -1,12 +1,14 @@
 name: Verify Go Module
 
+
 # don't limit to main branch
 # consider maintenance branch
 on:
   pull_request:
     branches:
-      - "release-branch.**"
+      - 'release-branch.**'
       - main
+
 
 jobs:
   llcppg-verification:
@@ -20,25 +22,25 @@ jobs:
       - name: Check out LLGo
         uses: actions/checkout@v4
         with:
-          repository: "goplus/llgo"
+          repository: 'goplus/llgo'
           path: .llgo
       - name: Check out LLCppg
         uses: actions/checkout@v4
         with:
-          repository: "goplus/llcppg"
+          repository: 'goplus/llcppg'
           path: .llcppg
-          ref: "v0.1.0"
+          ref: 'v0.1.0'
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
           go-version: "1.23"
       - name: Skip Cache Parser Tool
         run: |
-          go env -w GOPRIVATE=github.com/luoliwoshang/llpkgstore
+          go env -w GOPRIVATE=github.com/MeteorsLiu/llpkgstore
       - name: Set up Parser Tool
         run: |
-          go install -v github.com/luoliwoshang/llpkgstore/cmd/llpkgstore@latest
-          go install -v github.com/luoliwoshang/llpkgstore/cmd/demotest@latest
+          go install -v github.com/MeteorsLiu/llpkgstore/cmd/llpkgstore@gha-test
+          go install -v github.com/MeteorsLiu/llpkgstore/cmd/demotest@gha-test
       - name: Set up Conan
         run: |
           sudo apt-get install -y python3 python3-pip

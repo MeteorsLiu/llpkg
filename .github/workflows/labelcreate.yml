@@ -1,19 +1,13 @@
 name: Legacy version maintenance
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 455e528eddb148d03828ce14865afd835f8071a6
 # label trigger
 on:
   label:
     types: [created]
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 455e528eddb148d03828ce14865afd835f8071a6
 jobs:
   maintenance:
     runs-on: ubuntu-latest
@@ -43,17 +37,10 @@ jobs:
           go-version: "1.23"
       - name: Skip Cache Parser Tool
         run: |
-<<<<<<< HEAD
-          go env -w GOPRIVATE=github.com/luoliwoshang/llpkgstore
-      - name: Set up Parser Tool
-        run: |
-          go install -v github.com/luoliwoshang/llpkgstore/cmd/maintain@latest
-=======
           go env -w GOPRIVATE=github.com/MeteorsLiu/llpkgstore
       - name: Set up Parser Tool
         run: |
           go install -v github.com/MeteorsLiu/llpkgstore/cmd/maintain@gha-test
->>>>>>> 455e528eddb148d03828ce14865afd835f8071a6
       - name: Copy llpkgstore.json to root
         continue-on-error: true
         run: |
@@ -66,8 +53,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-<<<<<<< HEAD
           maintain labelcreate -l "${{ github.event.label.name }}"
-=======
-          maintain labelcreate -l "${{ github.event.label.name }}"
->>>>>>> 455e528eddb148d03828ce14865afd835f8071a6
