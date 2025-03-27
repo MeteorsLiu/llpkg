@@ -91,6 +91,11 @@ jobs:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           llpkgstore verification
+      - uses: actions/upload-artifact@v4
+        env:
+          LLPKG_PATH_CMD: ${{ env.LLPKG_PATH_CMD }}
+        with:
+          path: ${{LLPKG_PATH_CMD}}/.generated
 
       - name: Run Demotest process
         env:
