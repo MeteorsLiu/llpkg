@@ -87,17 +87,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Check out LLGo
-        uses: actions/checkout@v4
-        with:
-          repository: 'goplus/llgo'
-          path: .llgo
-      - name: Check out LLCppg
-        uses: actions/checkout@v4
-        with:
-          repository: 'goplus/llcppg'
-          path: .llcppg
-          ref: 'v0.1.0'
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
@@ -112,17 +101,13 @@ jobs:
         if: startsWith(matrix.os, 'macos')
         run: |
           brew update
-          brew install llvm@${{matrix.llvm}} cmake conan cjson
-          echo "$(brew --prefix llvm@${{matrix.llvm}})/bin" >> $GITHUB_PATH
+          brew install cmake conan cjson
 
       - name: Install dependencies
         if: startsWith(matrix.os, 'ubuntu')
         run: |
-          echo "deb http://apt.llvm.org/$(lsb_release -cs)/ llvm-toolchain-$(lsb_release -cs)-${{matrix.llvm}} main" | sudo tee /etc/apt/sources.list.d/llvm.list
-          wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
           sudo apt-get update
-          sudo apt-get install -y llvm-${{matrix.llvm}}-dev clang-${{matrix.llvm}} cmake python3 python3-pip libunwind-dev libclang-${{matrix.llvm}}-dev lld-${{matrix.llvm}} pkg-config
-          echo "/usr/lib/llvm-${{matrix.llvm}}/bin" >> $GITHUB_PATH
+          sudo apt-get install -y cmake python3 python3-pip pkg-config
           python3 -m pip install conan
       - name: Set up Conan
         run: |
