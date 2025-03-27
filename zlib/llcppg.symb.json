@@ -13,6 +13,7 @@
 	}, {
 		"mangle":	"compress",
 		"c++":	"compress(Bytef *, uLongf *, const Bytef *, uLong)",
+<<<<<<< HEAD
 		"go":	"(*Bytef).Compress"
 	}, {
 		"mangle":	"compress2",
@@ -22,6 +23,17 @@
 		"mangle":	"compressBound",
 		"c++":	"compressBound(uLong)",
 		"go":	"ULong.CompressBound"
+=======
+		"go":	"Compress"
+	}, {
+		"mangle":	"compress2",
+		"c++":	"compress2(Bytef *, uLongf *, const Bytef *, uLong, int)",
+		"go":	"Compress2"
+	}, {
+		"mangle":	"compressBound",
+		"c++":	"compressBound(uLong)",
+		"go":	"CompressBound"
+>>>>>>> 455e528eddb148d03828ce14865afd835f8071a6
 	}, {
 		"mangle":	"crc32",
 		"c++":	"crc32(uLong, const Bytef *, uInt)",
@@ -305,11 +317,19 @@
 	}, {
 		"mangle":	"uncompress",
 		"c++":	"uncompress(Bytef *, uLongf *, const Bytef *, uLong)",
+<<<<<<< HEAD
 		"go":	"(*Bytef).Uncompress"
 	}, {
 		"mangle":	"uncompress2",
 		"c++":	"uncompress2(Bytef *, uLongf *, const Bytef *, uLong *)",
 		"go":	"(*Bytef).Uncompress2"
+=======
+		"go":	"Uncompress"
+	}, {
+		"mangle":	"uncompress2",
+		"c++":	"uncompress2(Bytef *, uLongf *, const Bytef *, uLong *)",
+		"go":	"Uncompress2"
+>>>>>>> 455e528eddb148d03828ce14865afd835f8071a6
 	}, {
 		"mangle":	"zError",
 		"c++":	"zError(int)",

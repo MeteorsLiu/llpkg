@@ -1,4 +1,4 @@
-module github.com/luoliwoshang/goplus-llpkg/cjson
+module github.com/goplus/llpkg/gmp
 
 go 1.20
 
