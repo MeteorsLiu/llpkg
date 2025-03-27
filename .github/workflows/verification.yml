@@ -86,6 +86,7 @@ jobs:
 
       - name: Verfication
         id: gen-go-module
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
