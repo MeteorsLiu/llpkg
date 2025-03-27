@@ -97,7 +97,7 @@ jobs:
         env:
           LLPKG_PATH_CMD: ${{ env.LLPKG_PATH_CMD }}
         with:
-          path: ${{env.LLPKG_PATH_CMD}}
+          path: ${{env.LLPKG_PATH_CMD}}/
 
       - name: Run Demotest process
         env:
