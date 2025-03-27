@@ -1,4 +1,4 @@
-module github.com/luoliwoshang/goplus-llpkg/libxml2
+module github.com/goplus/llpkg/libxml2
 
 go 1.20
 
