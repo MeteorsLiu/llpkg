@@ -92,7 +92,7 @@ jobs:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           llpkgstore verification
-      - run: echo ${{env.LLPKG_PATH_CMD}}
+      - run: ls -lh ${{env.LLPKG_PATH_CMD}}
       - uses: actions/upload-artifact@v4
         env:
           LLPKG_PATH_CMD: ${{ env.LLPKG_PATH_CMD }}
