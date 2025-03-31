@@ -13,15 +13,15 @@
 	}, {
 		"mangle":	"compress",
 		"c++":	"compress(Bytef *, uLongf *, const Bytef *, uLong)",
-		"go":	"(*Bytef).Compress"
+		"go":	"Compress"
 	}, {
 		"mangle":	"compress2",
 		"c++":	"compress2(Bytef *, uLongf *, const Bytef *, uLong, int)",
-		"go":	"(*Bytef).Compress2"
+		"go":	"Compress2"
 	}, {
 		"mangle":	"compressBound",
 		"c++":	"compressBound(uLong)",
-		"go":	"ULong.CompressBound"
+		"go":	"CompressBound"
 	}, {
 		"mangle":	"crc32",
 		"c++":	"crc32(uLong, const Bytef *, uInt)",
@@ -212,7 +212,7 @@
 		"go":	"Gzungetc"
 	}, {
 		"mangle":	"gzvprintf",
-		"c++":	"gzvprintf(gzFile, const char *, int)",
+		"c++":	"gzvprintf(gzFile, const char *, va_list)",
 		"go":	"Gzvprintf"
 	}, {
 		"mangle":	"gzwrite",
@@ -305,11 +305,11 @@
 	}, {
 		"mangle":	"uncompress",
 		"c++":	"uncompress(Bytef *, uLongf *, const Bytef *, uLong)",
-		"go":	"(*Bytef).Uncompress"
+		"go":	"Uncompress"
 	}, {
 		"mangle":	"uncompress2",
 		"c++":	"uncompress2(Bytef *, uLongf *, const Bytef *, uLong *)",
-		"go":	"(*Bytef).Uncompress2"
+		"go":	"Uncompress2"
 	}, {
 		"mangle":	"zError",
 		"c++":	"zError(int)",

@@ -937,10 +937,8 @@ func ZlibCompileFlags() ULong
    functions).  The source code of these utility functions can be modified if
    you need special options.
 */
-// llgo:link (*Bytef).Compress C.compress
-func (recv_ *Bytef) Compress(destLen *ULongf, source *Bytef, sourceLen ULong) c.Int {
-	return 0
-}
+//go:linkname Compress C.compress
+func Compress(dest *Bytef, destLen *ULongf, source *Bytef, sourceLen ULong) c.Int
 
 /*
      Compresses the source buffer into the destination buffer.  sourceLen is
@@ -954,10 +952,8 @@ func (recv_ *Bytef) Compress(destLen *ULongf, source *Bytef, sourceLen ULong) c.
    enough memory, Z_BUF_ERROR if there was not enough room in the output
    buffer.
 */
-// llgo:link (*Bytef).Compress2 C.compress2
-func (recv_ *Bytef) Compress2(destLen *ULongf, source *Bytef, sourceLen ULong, level c.Int) c.Int {
-	return 0
-}
+//go:linkname Compress2 C.compress2
+func Compress2(dest *Bytef, destLen *ULongf, source *Bytef, sourceLen ULong, level c.Int) c.Int
 
 /*
      Compresses the source buffer into the destination buffer.  The level
@@ -971,20 +967,16 @@ func (recv_ *Bytef) Compress2(destLen *ULongf, source *Bytef, sourceLen ULong, l
    memory, Z_BUF_ERROR if there was not enough room in the output buffer,
    Z_STREAM_ERROR if the level parameter is invalid.
 */
-// llgo:link ULong.CompressBound C.compressBound
-func (recv_ ULong) CompressBound() ULong {
-	return 0
-}
+//go:linkname CompressBound C.compressBound
+func CompressBound(sourceLen ULong) ULong
 
 /*
      compressBound() returns an upper bound on the compressed size after
    compress() or compress2() on sourceLen bytes.  It would be used before a
    compress() or compress2() call to allocate the destination buffer.
 */
-// llgo:link (*Bytef).Uncompress C.uncompress
-func (recv_ *Bytef) Uncompress(destLen *ULongf, source *Bytef, sourceLen ULong) c.Int {
-	return 0
-}
+//go:linkname Uncompress C.uncompress
+func Uncompress(dest *Bytef, destLen *ULongf, source *Bytef, sourceLen ULong) c.Int
 
 /*
      Decompresses the source buffer into the destination buffer.  sourceLen is
@@ -1001,10 +993,8 @@ func (recv_ *Bytef) Uncompress(destLen *ULongf, source *Bytef, sourceLen ULong) 
    the case where there is not enough room, uncompress() will fill the output
    buffer with the uncompressed data up to that point.
 */
-// llgo:link (*Bytef).Uncompress2 C.uncompress2
-func (recv_ *Bytef) Uncompress2(destLen *ULongf, source *Bytef, sourceLen *ULong) c.Int {
-	return 0
-}
+//go:linkname Uncompress2 C.uncompress2
+func Uncompress2(dest *Bytef, destLen *ULongf, source *Bytef, sourceLen *ULong) c.Int
 
 type GzFileS struct {
 	Have c.Uint
