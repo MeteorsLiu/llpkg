@@ -63,8 +63,8 @@ func (recv_ *CJSON) CJSONPrint() *int8 {
 }
 
 /* Render a cJSON entity to text for transfer/storage without any formatting. */
-// llgo:link (*CJSON).CJSONPrintUnformatted C.cJSON_PrintUnformatted
-func (recv_ *CJSON) CJSONPrintUnformatted() *int8 {
+// llgo:link (*CJSON).CStr C.cJSON_PrintUnformatted
+func (recv_ *CJSON) CStr() *int8 {
 	return nil
 }
 
@@ -198,18 +198,18 @@ func (recv_ CJSONBool) CJSONCreateBool() *CJSON {
 //go:linkname CJSONCreateNumber C.cJSON_CreateNumber
 func CJSONCreateNumber(num float64) *CJSON
 
-//go:linkname CJSONCreateString C.cJSON_CreateString
-func CJSONCreateString(string *int8) *CJSON
+//go:linkname String C.cJSON_CreateString
+func String(string *int8) *CJSON
 
 /* raw json */
 //go:linkname CJSONCreateRaw C.cJSON_CreateRaw
 func CJSONCreateRaw(raw *int8) *CJSON
 
-//go:linkname CJSONCreateArray C.cJSON_CreateArray
-func CJSONCreateArray() *CJSON
+//go:linkname Array C.cJSON_CreateArray
+func Array() *CJSON
 
-//go:linkname CJSONCreateObject C.cJSON_CreateObject
-func CJSONCreateObject() *CJSON
+//go:linkname Object C.cJSON_CreateObject
+func Object() *CJSON
 
 /* Create a string where valuestring references a string so
  * it will not be freed by cJSON_Delete */
@@ -243,13 +243,13 @@ func CJSONCreateDoubleArray(numbers *float64, count c.Int) *CJSON
 func CJSONCreateStringArray(strings **int8, count c.Int) *CJSON
 
 /* Append item to the specified array/object. */
-// llgo:link (*CJSON).CJSONAddItemToArray C.cJSON_AddItemToArray
-func (recv_ *CJSON) CJSONAddItemToArray(item *CJSON) CJSONBool {
+// llgo:link (*CJSON).AddItem C.cJSON_AddItemToArray
+func (recv_ *CJSON) AddItem(item *CJSON) CJSONBool {
 	return 0
 }
 
-// llgo:link (*CJSON).CJSONAddItemToObject C.cJSON_AddItemToObject
-func (recv_ *CJSON) CJSONAddItemToObject(string *int8, item *CJSON) CJSONBool {
+// llgo:link (*CJSON).SetItem C.cJSON_AddItemToObject
+func (recv_ *CJSON) SetItem(string *int8, item *CJSON) CJSONBool {
 	return 0
 }
 
@@ -416,5 +416,5 @@ func (recv_ *CJSON) CJSONSetValuestring(valuestring *int8) *int8 {
 //go:linkname CJSONMalloc C.cJSON_malloc
 func CJSONMalloc(size uintptr) unsafe.Pointer
 
-//go:linkname CJSONFree C.cJSON_free
-func CJSONFree(object unsafe.Pointer)
+//go:linkname FreeCStr C.cJSON_free
+func FreeCStr(object unsafe.Pointer)
