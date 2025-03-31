@@ -7,7 +7,7 @@ import (
 
 const CJSON_VERSION_MAJOR = 1
 const CJSON_VERSION_MINOR = 7
-const CJSON_VERSION_PATCH = 18
+const CJSON_VERSION_PATCH = 17
 const IsReference = 256
 const StringIsConst = 512
 const CJSON_NESTING_LIMIT = 1000

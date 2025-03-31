@@ -1,10 +1,10 @@
-prefix=/home/vscode/.conan2/p/b/cjson7fb112e50ddea/p
+prefix=/home/vscode/.conan2/p/b/cjson6928d49bdf75b/p
 libdir=${prefix}/lib
 includedir=${prefix}/include
 bindir=${prefix}/bin
 
 Name: libcjson
 Description: Conan component: cjson-libcjson
-Version: 1.7.18
+Version: 1.7.17
 Libs: -L"${libdir}" -lcjson -lm
 Cflags: -I"${includedir}"
