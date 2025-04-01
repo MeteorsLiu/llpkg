@@ -1,7 +1,7 @@
 package main
 
 import (
-	"lua"
+	"github.com/goplus/llpkg/lua"
 
 	"github.com/goplus/llgo/c"
 )

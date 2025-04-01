@@ -3,7 +3,7 @@ package main
 import (
 	_ "unsafe"
 
-	"lua"
+	"github.com/goplus/llpkg/lua"
 
 	"github.com/goplus/llgo/c"
 )
