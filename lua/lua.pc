@@ -1,0 +1,10 @@
+prefix=/home/vscode/.conan2/p/b/lua52323287be344/p
+libdir=${prefix}/lib
+includedir=${prefix}/include
+bindir=${prefix}/bin
+
+Name: lua
+Description: Conan package: lua
+Version: 5.4.7
+Libs: -L"${libdir}" -llua -ldl -lm
+Cflags: -I"${includedir}" -DLUA_USE_DLOPEN -DLUA_USE_POSIX

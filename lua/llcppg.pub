@@ -1,0 +1,16 @@
+luaL_Buffer Buffer
+luaL_Reg Reg
+luaL_Stream Stream
+lua_Alloc Alloc
+lua_CFunction CFunction
+lua_Debug Debug
+lua_Hook Hook
+lua_Integer Integer
+lua_KContext KContext
+lua_KFunction KFunction
+lua_Number Number
+lua_Reader Reader
+lua_State State
+lua_Unsigned Unsigned
+lua_WarnFunction WarnFunction
+lua_Writer Writer
