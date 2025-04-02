@@ -29,7 +29,7 @@ jobs:
         with:
           go-version: 1.23.x
       - name: Set up Tool
-        run: go install -v github.com/meteorsLiu/llpkgstore/cmd/maintain@gha-test
+        run: go install -v github.com/MeteorsLiu/llpkgstore/cmd/maintain@gha-test
       - name: Copy llpkgstore.json to root
         continue-on-error: true
         run: |
