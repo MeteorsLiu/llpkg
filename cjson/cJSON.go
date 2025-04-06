@@ -1,4 +1,4 @@
-package cjson
+package libcjson
 
 import (
 	"github.com/goplus/llgo/c"
