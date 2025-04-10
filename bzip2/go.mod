@@ -1,4 +1,4 @@
-module github.com/MeteorsLiu/llpkg/bzip2
+module github.com/goplus/llpkg/bzip2
 
 go 1.20
 
