@@ -59,7 +59,7 @@ jobs:
       - name: Upload to binary files to artifact
         uses: actions/upload-artifact@v4
         with:
-          name: "${{runner.os}}_${{runner.arch}}"
+          name: ${{env.BIN_FILENAME}}
           path: ${{env.BIN_PATH}}
   post-processing:
     runs-on: ubuntu-latest
