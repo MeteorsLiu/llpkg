@@ -3,7 +3,7 @@ package main
 import (
 	"unsafe"
 
-	"github.com/MeteorsLiu/llpkg/cjson"
+	"github.com/goplus/llpkg/cjson"
 
 	"github.com/goplus/llgo/c"
 )
