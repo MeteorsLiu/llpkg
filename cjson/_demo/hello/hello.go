@@ -4,7 +4,7 @@ import (
 	"unsafe"
 
 	"github.com/goplus/llgo/c"
-	cjson "github.com/goplus/llpkg/libcjson"
+	"github.com/goplus/llpkg/cjson"
 )
 
 func main() {
