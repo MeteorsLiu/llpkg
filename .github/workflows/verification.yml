@@ -56,7 +56,7 @@ jobs:
         if: startsWith(matrix.os, 'macos')
         run: |
           brew update
-          brew install llvm@19 bdw-gc openssl libffi libuv cmake conan cjson
+          brew install llvm@${{matrix.llvm}} bdw-gc openssl libffi libuv cmake conan cjson
           brew link --force libffi
           echo "$(brew --prefix llvm@18)/bin" >> $GITHUB_PATH
       - name: Install dependencies
