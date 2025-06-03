@@ -573,18 +573,6 @@ type RegisterNodeFunc func(NodePtr)
 // llgo:type C
 type DeregisterNodeFunc func(NodePtr)
 
-//go:linkname X__xmlBufferAllocScheme C.__xmlBufferAllocScheme
-func X__xmlBufferAllocScheme() *BufferAllocationScheme
-
-//go:linkname X__xmlDefaultBufferSize C.__xmlDefaultBufferSize
-func X__xmlDefaultBufferSize() *c.Int
-
-//go:linkname X__xmlRegisterNodeDefaultValue C.__xmlRegisterNodeDefaultValue
-func X__xmlRegisterNodeDefaultValue() RegisterNodeFunc
-
-//go:linkname X__xmlDeregisterNodeDefaultValue C.__xmlDeregisterNodeDefaultValue
-func X__xmlDeregisterNodeDefaultValue() DeregisterNodeFunc
-
 /*
  * Some helper functions
  */

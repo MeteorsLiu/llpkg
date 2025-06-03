@@ -223,36 +223,6 @@ func X__xmlDefaultSAXLocator() *SAXLocator
 //go:linkname X__xmlDefaultSAXHandler C.__xmlDefaultSAXHandler
 func X__xmlDefaultSAXHandler() *SAXHandlerV1
 
-//go:linkname X__xmlDoValidityCheckingDefaultValue C.__xmlDoValidityCheckingDefaultValue
-func X__xmlDoValidityCheckingDefaultValue() *c.Int
-
-//go:linkname X__xmlGetWarningsDefaultValue C.__xmlGetWarningsDefaultValue
-func X__xmlGetWarningsDefaultValue() *c.Int
-
-//go:linkname X__xmlKeepBlanksDefaultValue C.__xmlKeepBlanksDefaultValue
-func X__xmlKeepBlanksDefaultValue() *c.Int
-
-//go:linkname X__xmlLineNumbersDefaultValue C.__xmlLineNumbersDefaultValue
-func X__xmlLineNumbersDefaultValue() *c.Int
-
-//go:linkname X__xmlLoadExtDtdDefaultValue C.__xmlLoadExtDtdDefaultValue
-func X__xmlLoadExtDtdDefaultValue() *c.Int
-
-//go:linkname X__xmlPedanticParserDefaultValue C.__xmlPedanticParserDefaultValue
-func X__xmlPedanticParserDefaultValue() *c.Int
-
-//go:linkname X__xmlSubstituteEntitiesDefaultValue C.__xmlSubstituteEntitiesDefaultValue
-func X__xmlSubstituteEntitiesDefaultValue() *c.Int
-
-//go:linkname X__xmlIndentTreeOutput C.__xmlIndentTreeOutput
-func X__xmlIndentTreeOutput() *c.Int
-
-//go:linkname X__xmlTreeIndentString C.__xmlTreeIndentString
-func X__xmlTreeIndentString() **c.Char
-
-//go:linkname X__xmlSaveNoEmptyTags C.__xmlSaveNoEmptyTags
-func X__xmlSaveNoEmptyTags() *c.Int
-
 /*
  * Init/Cleanup
  */

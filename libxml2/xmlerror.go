@@ -821,21 +821,6 @@ type GenericErrorFunc func(__llgo_arg_0 c.Pointer, __llgo_arg_1 *c.Char, __llgo_
 // llgo:type C
 type StructuredErrorFunc func(c.Pointer, *Error)
 
-//go:linkname X__xmlLastError C.__xmlLastError
-func X__xmlLastError() *Error
-
-//go:linkname X__xmlGenericError C.__xmlGenericError
-func X__xmlGenericError() GenericErrorFunc
-
-//go:linkname X__xmlGenericErrorContext C.__xmlGenericErrorContext
-func X__xmlGenericErrorContext() *c.Pointer
-
-//go:linkname X__xmlStructuredError C.__xmlStructuredError
-func X__xmlStructuredError() StructuredErrorFunc
-
-//go:linkname X__xmlStructuredErrorContext C.__xmlStructuredErrorContext
-func X__xmlStructuredErrorContext() *c.Pointer
-
 /*
  * Use the following function to reset the two global variables
  * xmlGenericError and xmlGenericErrorContext.

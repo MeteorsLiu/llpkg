@@ -35,12 +35,6 @@ type ParserInputBufferCreateFilenameFunc func(*c.Char, CharEncoding) ParserInput
 // llgo:type C
 type OutputBufferCreateFilenameFunc func(*c.Char, CharEncodingHandlerPtr, c.Int) OutputBufferPtr
 
-//go:linkname X__xmlParserInputBufferCreateFilenameValue C.__xmlParserInputBufferCreateFilenameValue
-func X__xmlParserInputBufferCreateFilenameValue() ParserInputBufferCreateFilenameFunc
-
-//go:linkname X__xmlOutputBufferCreateFilenameValue C.__xmlOutputBufferCreateFilenameValue
-func X__xmlOutputBufferCreateFilenameValue() OutputBufferCreateFilenameFunc
-
 /*
  * Interfaces for input
  */
